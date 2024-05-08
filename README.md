@@ -1,37 +1,34 @@
 # Lab4
 Analyzing Student Performance
-set.seed(42)  
-# Set a fixed random seed for reproducibility
-num_students <- 500  
+# Student Data Simulation and Linear Regression Model
 
-# Define the number of students
+The code provided is a simulation of student data and the subsequent building of a linear regression model to predict final grades based on various factors.
 
-# Generate simulated data for study hours, quiz scores, forum posts, previous grades, and final grades
-StudyHours <- sample(1:20, num_students, replace = TRUE)
-QuizScores <- sample(1:10, num_students, replace = TRUE)
-ForumPosts <- sample(1:30, num_students, replace = TRUE)
-PreviousGrades <- sample(50:100, num_students, replace = TRUE)
-FinalGrades <- sample(50:100, num_students, replace = TRUE)
+## Code Breakdown
 
-# Create a data frame to store the generated data
-student_data <- data.frame(StudyHours, QuizScores, ForumPosts, PreviousGrades, FinalGrades)
+Here's a breakdown of the code:
 
-# Display the first few rows of the generated data
-head(student_data)
+- The code begins by setting a fixed random seed using the `set.seed()` function. This ensures that the random numbers generated in the code are reproducible.
+- The variable `num_students` is set to 500, representing the number of students for which the data will be simulated.
+- The code then proceeds to simulate data for study hours, quiz scores, forum participation, previous grades, and final grades. Each variable is generated using the `sample()` function to randomly select values within specified ranges.
+- A data frame named `student_data` is created to store the simulated data. It consists of columns representing study hours, quiz scores, forum posts, previous grades, and final grades.
+- The `head()` function is used to display the first few rows of the generated data.
+- The data is split into training and testing sets using an 80:20 ratio. The `sample()` function is again used to randomly select row indices for the training set, and the remaining rows are assigned to the testing set.
+- A linear regression model is built using the training data. The formula `FinalGrades ~ StudyHours + QuizScores + ForumPosts + PreviousGrades` specifies that the final grades are the dependent variable, and the other variables are the independent variables. The `lm()` function is used to fit the model.
+- Predictions are made on the test set using the trained model by calling the `predict()` function.
+- Evaluation metrics, such as mean squared error (MSE) and R-squared, are computed to assess the model's performance. MSE measures the average squared difference between the predicted and actual values, while R-squared represents the proportion of the variance in the dependent variable that is predictable from the independent variables.
+- The evaluation metrics are printed to the console using the `cat()` function.
+- Prediction intervals are obtained by calling the `predict()` function with the `interval = "prediction"` argument.
+- The lower and upper bounds of the prediction intervals are extracted from the `pred_int` object.
+- The actual values from the test data are stored in the `actual_values` variable.
+- The code checks if the actual values fall within the prediction intervals and computes the accuracy by counting the correct predictions.
+- The accuracy is printed to the console using the `cat()` function.
+- Finally, the trained linear regression model is displayed using the `model` object, and a plot of the model is generated using the `plot()` function.
 
-# Split the data into training and testing sets with an 80:20 ratio
-train_indices <- sample(1:num_students, 0.8 * num_students)
-testing_data <- student_data[-train_indices, ]
-training_data <- student_data[train_indices, ]
+## Usage
 
-# Build a linear regression model using the training data
-model <- lm(FinalGrades ~ StudyHours + QuizScores + ForumPosts + PreviousGrades, data = training_data)
+You can run this code to simulate student data and build a linear regression model for predicting final grades based on various factors. Make sure to have the necessary dependencies installed and follow the instructions in the code comments.
 
-# Compute predictions on the test set
-predictions <- predict(model, newdata = testing_data)
+## License
 
-# Calculate evaluation metrics: Mean Squared Error (MSE) and R-squared
-MSE <- mean((predictions - testing_data$FinalGrades)^2)
-R_squared <- summary(model)$r.squared
-
-# Obtain prediction intervals
+This project is licensed under the [MIT License](LICENSE).
