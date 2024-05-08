@@ -27,8 +27,5 @@ Here's a breakdown of the code:
 
 ## Usage
 
-You can run this code to simulate student data and build a linear regression model for predicting final grades based on various factors. Make sure to have the necessary dependencies installed and follow the instructions in the code comments.
+We can run this code to simulate student data and build a linear regression model for predicting final grades based on various factors.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
