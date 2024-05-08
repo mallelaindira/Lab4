@@ -1,6 +1,7 @@
 # Lab4
 Analyzing Student Performance
-set.seed(42)  # Set a fixed random seed for reproducibility
+set.seed(42)  
+# Set a fixed random seed for reproducibility
 num_students <- 500  # Define the number of students
 
 # Generate simulated data for study hours, quiz scores, forum posts, previous grades, and final grades
