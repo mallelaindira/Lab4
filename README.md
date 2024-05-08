@@ -24,6 +24,7 @@ Here's a breakdown of the code:
 - The code checks if the actual values fall within the prediction intervals and computes the accuracy by counting the correct predictions.
 - The accuracy is printed to the console using the `cat()` function.
 - Finally, the trained linear regression model is displayed using the `model` object, and a plot of the model is generated using the `plot()` function.
+![Lab4](https://raw.githubusercontent.com/mallelaindira/Lab4/main/ddb2fdd7-9cc2-46a4-b4d7-8223d483fc12.png)
 
 ## Usage
 
