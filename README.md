@@ -1,4 +1,4 @@
-# Lab4
+# Student Grade Prediction
 Analyzing Student Performance
 # Student Data Simulation and Linear Regression Model
 
